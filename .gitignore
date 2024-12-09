@@ -1,0 +1,4 @@
+build/
+*.idx
+compile_commands.json
+settings.json
