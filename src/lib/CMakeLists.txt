@@ -1,5 +1,6 @@
 add_library(eduart SHARED
   parameter.cpp
+  parameter_value.cpp
 )
 target_include_directories(eduart
   PUBLIC

@@ -39,8 +39,8 @@ private:
 class ParameterInRangeConstrain : public ParameterConstrain
 {
 public:
-  ParameterInRangeConstrain(const int min, const int max);
-  ParameterInRangeConstrain(const double min, const double max);
+  explicit ParameterInRangeConstrain(const int min, const int max);
+  explicit ParameterInRangeConstrain(const double min, const double max);
   
 private:
   bool check(const ParameterValue& value) override;

@@ -7,6 +7,7 @@
 
 #include "eduart/parameter_value.hpp"
 #include <eduart/parameter_constrain.hpp>
+#include <vector>
 
 namespace eduart {
 
@@ -18,6 +19,7 @@ class Parameter
 {
 public:
   Parameter(const std::string& name, const ParameterValue& default_value);
+  Parameter(const std::string& name, const ParameterValue& default_value, const std::vector<ParameterConstrain>& constrains);
 
   inline const ParameterValue& value() const { return _value; }
   inline ParameterType type() const { return _value.type(); }

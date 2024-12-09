@@ -6,6 +6,7 @@
 #pragma once
 
 #include <cstring>
+#include <memory>
 #include <string>
 
 namespace eduart {
@@ -25,11 +26,12 @@ enum class ParameterType {
 class ParameterValue
 {
 public:
-  ParameterValue(const ParameterValue&);
-  ~ParameterValue();
   explicit ParameterValue(const int value);
   explicit ParameterValue(const double value);
   explicit ParameterValue(const std::string& value);
+
+  ParameterValue(const ParameterValue&);
+  ~ParameterValue();
 
   inline ParameterType type() const { return _type; }
   int as_int() const;
@@ -40,14 +42,8 @@ private:
   union Data {
     int value_int;
     double value_double;
-    std::string value_string;
-
-    Data() { std::memset(this, 0, sizeof(Data)); }
-    ~Data() { }
+    std::string* value_string;
   } _data;
-
-  // keep string outside union for easier handling
-  std::string _value_string;
 
   ParameterType _type;
 };

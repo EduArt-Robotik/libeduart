@@ -10,4 +10,5 @@ add_executable(unittest-parameter
 target_link_libraries(unittest-parameter
   PRIVATE
     Catch2::Catch2
+    eduart
 )
